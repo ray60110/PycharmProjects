@@ -1,0 +1,5 @@
+
+print('what do you want to play?')
+a= input()
+
+print('so you want to play %r') % a
