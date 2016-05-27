@@ -8,6 +8,7 @@ class monster(combat):
     min_exp=1
     max_exp=10
     roar='roar'
+    attack=1
 
     def __init__(self, **kwargs):
         self.color= random.choice(COLORS)
@@ -28,11 +29,18 @@ class monster(combat):
 class goblin(monster):
     max_healthpoint = 5
     max_exp = 4
+    attack=2
     roar = 'golin'
 
+class slime(monster):
+    max_healthpoint = 3
+    max_exp = 2
 
 class dragon(monster):
+    min_healthpoint = 50
     max_healthpoint = 100
+    min_exp = 40
     max_exp = 200
+    attack=5
     roar = 'hoaarrrrrr'
 
