@@ -3,11 +3,12 @@ from monster import slime, goblin, dragon
 import sys
 import random
 
-class game:
+class game(Character):
     print('''
     Welcome to the relative RPG game! you are the
     only hero that can slave the monster in this
-    world. good luck!''')
+    world. good luck!
+    ''')
 
     def __init__(self):
         self.setup()
@@ -31,6 +32,10 @@ class game:
             sys.exit(
             )
 
+    def got_hit(self):
+        self.player.healthpoint -= self.monster.attack
+        return self.player.healthpoint
+
     def setup(self):
         self.player= Character()
         self.monsters= [slime(), goblin(), dragon()]
@@ -53,16 +58,16 @@ class game:
 
     def monster_turn(self):
         if self.monster.attacking():
-            print(" {} is attacking!".format(self.monster))
+            print("\n{} is attacking!".format(self.monster))
             if input('Dodge? (Y/n)').lower() =='y':
                 if self.player.dodging():
                     print('You dodge that!')
                 else:
                     print('You was hit!')
-                    self.got_hit(self.player, self.monster.attack)
+                    self.got_hit()
             else:
                 print('{} hit you for 1 point!'.format(self.monster))
-                self.got_hit(self.player, self.monster.attack)
+                self.got_hit()
         else:
             print("{} is missing".format(self.monster))
 
@@ -86,7 +91,9 @@ class game:
             elif player_choice == 'r':
                 self.player.rest()
             elif player_choice == 'q':
-                sys.exit()
+                sys.exit(
+
+                )
                 # exit belong to sys library. that you should import sys.
             else:
                 return self.player_turn()

@@ -6,7 +6,7 @@ class combat:
 
     def dodging(self):
         roll= random.randint(1, self.dodge_index)
-        return self.dodge_index> roll
+        return roll > 4
     def attacking(self):
         roll=random.randint(1, self.attack_index)
-        return self.attack_index> roll
+        return roll > 4
