@@ -1,10 +1,6 @@
-<!doctype html>
-<html>
-    <head>
-        <title>ADD NUMBERS!</title></head>
-        <body>
-            <h1>
-                {{ num11 }} + {{num21}} = {{num11+num21}}
-            </h1>
-        </body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %} ADDing NUMBER!|{{ super() }} x{% endblock %}
+
+{% block content %}<h1>{{ num11 }} + {{num21}} = {{num11+num21}}</h1>{% endblock %}
+{% block message %}message from add templates{% endblock %}
